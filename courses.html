@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster"/>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-3.3.1.js"></script>
+        <style>
+            body{
+                font-family: Lobster;
+            }
+        </style>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Language', 'Share'],
+              ['Python',     22.8],
+              ['Java',      22.5],
+              ['JavaScript',  8.57],
+              ['PHP', 8.33],
+              ['C#',    7.87]
+            ]);
+
+            var options = {
+              title: 'My Daily Activities',
+              is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+          }
+          
+        </script>
+    </head>
+    <body>
+        <!--Navigation bar--->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="index.html" class="navbar-brand">GetToKnow!</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="contact.html">ContactUs</a></li>
+                        <li><a href="signup.html">SignUp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Navigation bar ends--->
+        <br/><br/><br/>
+        <!--Pie charts-->
+        <h1 align="center">Comparison of popularity of programming languages</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Change</th>
+                                    <th>Language</th>
+                                    <th>Share</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody  id="push">
+                                
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div align="center" id="piechart_3d" style="width: 900px; height: 500px;"></div>
+        <!--pie charts ends--->
+        
+        
+        <script>
+            (function load(){
+          var table='';
+            info = [
+              [1, '&#8679;','Python','22.8%','+5.5%' ],
+              [2, '&#8681;', 'Java', '22.5%', '-0.7%'],
+              [3,'&#8679;','JavaScript',  '8.57%', '+0.2%'],
+              [4, '&#8681;','PHP', '8.33%', '-1.6%'],
+              [5,'&#8681;', 'C#', '7.87%', '-0.7%']]
+            var i;
+            for (i = 0; i < info.length; i++)
+                {
+                    table = table + '<tr><td>' + info[i][0] +'</td>';
+                    if(info[i][1] == '&#8679;'){
+                        table = table + '<td style = "color: green;">' + info[i][1]+'</td>';
+                    }
+                    else{
+                        table = table + '<td style = "color: red;">' + info[i][1]+'</td>';
+                    }
+                    
+                    table = table + '<td>' + info[i][2]+'</td>';
+                    table = table + '<td>' + info[i][3]+'</td>';
+                    table = table + '<td>' + info[i][4]+'</td></tr>';
+                }
+            document.getElementById('push').innerHTML = table;
+              })();
+        </script>
+        <script  src="js/bootstrap.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script  src="js/jquery-3.3.1.js"></script>
+    </body>
+</html>
